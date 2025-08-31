@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MH41</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Mh41.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="manifest" href="/manifest.json">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { 500: '#3b82f6' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-50">
+    <!-- Side Navigation HTML --> 
+    <div id="sidebar" class="fixed inset-y-0 left-0 w-64 bg-white shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out z-50"> 
+        <div class="p-4"> 
+            <!-- User Profile --> 
+            <div class="mb-6 flex items-center gap-3"> 
+                <div class="bg-blue-100 p-3 rounded-full"> 
+                    <i data-lucide="user" class="h-6 w-6 text-blue-600"></i> 
+                </div> 
+                <div> 
+                    <h3 class="font-bold text-gray-900">Alex Johnson</h3> 
+                    <div class="flex items-center gap-2 text-sm text-gray-500"> 
+                        <span class="w-2 h-2 bg-green-500 rounded-full"></span> 
+                        <span>Premium Member</span> 
+                    </div> 
+                </div> 
+            </div> 
+            <nav class="space-y-1"> 
+                <a href="/cars" class="flex items-center gap-3 py-3 px-4 hover:bg-blue-50 rounded transition"> 
+                    <i data-lucide="car" class="h-5 w-5 text-blue-600"></i> 
+                    <span class="font-medium">Cars</span> 
+                </a> 
+                <a href="/garage" class="flex items-center gap-3 py-3 px-4 hover:bg-blue-50 rounded transition"> 
+                    <i data-lucide="wrench" class="h-5 w-5 text-blue-600"></i> 
+                    <span class="font-medium">Garage</span> 
+                </a> 
+                <a href="/washing" class="flex items-center gap-3 py-3 px-4 hover:bg-blue-50 rounded transition"> 
+                    <i data-lucide="droplet" class="h-5 w-5 text-blue-600"></i> 
+                    <span class="font-medium">Washing</span> 
+                </a> 
+                <a href="/products" class="flex items-center gap-3 py-3 px-4 hover:bg-blue-50 rounded transition"> 
+                    <i data-lucide="package" class="h-5 w-5 text-blue-600"></i> 
+                    <span class="font-medium">Products</span> 
+                </a> 
+                <a href="/foglight" class="flex items-center gap-3 py-3 px-4 hover:bg-blue-50 rounded transition"> 
+                    <i data-lucide="lightbulb" class="h-5 w-5 text-blue-600"></i> 
+                    <span class="font-medium">Foglight</span> 
+                </a> 
+                <a href="/engine-oil" class="flex items-center gap-3 py-3 px-4 hover:bg-blue-50 rounded transition"> 
+                    <i data-lucide="oil-canister" class="h-5 w-5 text-blue-600"></i> 
+                    <span class="font-medium">Engine Oil</span> 
+                </a> 
+                <a href="/pickup" class="flex items-center gap-3 py-3 px-4 hover:bg-blue-50 rounded transition"> 
+                    <i data-lucide="truck" class="h-5 w-5 text-blue-600"></i> 
+                    <span class="font-medium">Pickup</span> 
+                </a> 
+                <a href="/greasing" class="flex items-center gap-3 py-3 px-4 hover:bg-blue-50 rounded transition"> 
+                    <i data-lucide="tool" class="h-5 w-5 text-blue-600"></i> 
+                    <span class="font-medium">Greasing</span> 
+                </a> 
+                <a href="/detailing" class="flex items-center gap-3 py-3 px-4 hover:bg-blue-50 rounded transition"> 
+                    <i data-lucide="sparkles" class="h-5 w-5 text-blue-600"></i> 
+                    <span class="font-medium">Detailing</span> 
+                </a> 
+            </nav> 
+        </div> 
+    </div>
+    <!-- Overlay for mobile when side nav is active --> 
+    <div class="overlay"></div>
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b border-gray-200">
+        <div class="px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <button id="sidebar-toggle" class="rounded-full shadow-lg bg-white/80 hover:bg-blue-100 transition h-8 w-8 flex items-center justify-center">
+                        <i data-lucide="menu" class="h-5 w-5 text-blue-700"></i>
+                    </button>
+                    <div>
+                        <a href="/" class="text-lg font-bold text-blue-600">MH41</a>
+                        <p class="text-xs text-gray-500">Car Rental Service</p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3">
+                    <button class="h-8 w-8 flex items-center justify-center relative">
+                        <i data-lucide="bell" class="h-5 w-5"></i>
+                        <div class="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full"></div>
+                    </button>
+
+                    <button class="relative h-8 w-8 rounded-full bg-gray-200 flex items-center justify-center">
+                        <i data-lucide="user" class="h-4 w-4 text-gray-600"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="md:pl-64">
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <footer class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-2 z-50 shadow-lg">
+        <div class="max-w-md mx-auto">
+          <div class="flex items-center justify-between">
+            <a href="/" class="flex flex-col items-center gap-1 p-2 rounded-lg text-blue-600 bg-blue-50">
+              <i data-lucide="home" class="h-5 w-5"></i>
+              <span class="text-xs font-medium">Home</span>
+            </a>
+            <a href="/bookings" class="flex flex-col items-center gap-1 p-2 rounded-lg text-gray-600 hover:text-blue-600">
+              <i data-lucide="calendar" class="h-5 w-5"></i>
+              <span class="text-xs font-medium">Bookings</span>
+            </a>
+            <a href="/cars" class="flex flex-col items-center gap-1 p-2 rounded-lg text-gray-600 hover:text-blue-600">
+              <i data-lucide="car" class="h-5 w-5"></i>
+              <span class="text-xs font-medium">Cars</span>
+            </a>
+            <a href="/support" class="flex flex-col items-center gap-1 p-2 rounded-lg text-gray-600 hover:text-blue-600">
+              <i data-lucide="message-circle" class="h-5 w-5"></i>
+              <span class="text-xs font-medium">Support</span>
+            </a>
+            <a href="/profile" class="flex flex-col items-center gap-1 p-2 rounded-lg text-gray-600 hover:text-blue-600">
+              <i data-lucide="user" class="h-5 w-5"></i>
+              <span class="text-xs font-medium">Profile</span>
+            </a>
+          </div>
+        </div>
+      </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Sidebar Toggle Functionality
+        const sidebar = document.getElementById('sidebar');
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const overlay = document.querySelector('.overlay');
+    
+        sidebarToggle.addEventListener('click', () => {
+          sidebar.classList.toggle('translate-x-0');
+          sidebar.classList.toggle('-translate-x-full');
+          overlay.classList.toggle('active');
+        });
+    
+        overlay.addEventListener('click', () => {
+          sidebar.classList.add('-translate-x-full');
+          sidebar.classList.remove('translate-x-0');
+          overlay.classList.remove('active');
+        });
+        lucide.createIcons();
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+
+<style> 
+    * { 
+        margin: 0; 
+        padding: 0; 
+        box-sizing: border-box; 
+        font-family: 'Montserrat', sans-serif; 
+    } 
+    :root { 
+        --primary: #3498db; 
+        --primary-dark: #2980b9; 
+        --secondary: #2c3e50; 
+        --accent: #e74c3c; 
+        --accent-light: #ff6b6b; 
+        --light: #ecf0f1; 
+        --dark: #2d3748; 
+        --success: #2ecc71; 
+        --warning: #f39c12; 
+        --danger: #e74c3c; 
+        --gray: #6b7280; 
+        --light-gray: #f4f7fa; 
+        --shadow: 0 4px 12px rgba(0, 0, 0, 0.05); 
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+        --gradient: linear-gradient(135deg, #3498db, #2c3e50); 
+        --gradient-accent: linear-gradient(135deg, #e74c3c, #f39c12); 
+    } 
+    /* Side Navigation */ 
+    .side-nav { 
+        width: 280px; 
+        background: var(--light-gray); 
+        color: var(--dark); 
+        height: calc(100vh - 70px); 
+        position: fixed; 
+        top: 70px; 
+        left: -280px; 
+        transition: var(--transition); 
+        z-index: 900; 
+        overflow-y: auto; 
+        box-shadow: var(--shadow); 
+        border-radius: 0 20px 20px 0; 
+    } 
+    .side-nav.active { 
+        left: 0; 
+    } 
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
+    .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then(() => console.log('Service Worker Registered'))
+                .catch(error => console.log('Service Worker Registration Failed:', error));
+        }
+    </script>

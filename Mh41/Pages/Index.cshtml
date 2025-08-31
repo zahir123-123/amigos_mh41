@@ -1,0 +1,395 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="pb-24">
+    <!-- HeroBanner -->
+    <section class="relative mx-4 mt-4 rounded-xl overflow-hidden">
+        <div class="relative w-full" id="hero-aspect" style="padding-top:33.33%">
+            <div class="absolute inset-0 w-full h-full">
+                <img id="hero-image" src="/assets/car-banner.jpg" alt="Banner" class="w-full h-full object-cover" />
+                <div id="hero-garage-overlay" class="hidden absolute inset-0 flex items-center bg-black/30">
+                    <div class="ml-8">
+                        <div class="text-white/80 text-xs font-semibold mb-1 uppercase tracking-widest drop-shadow">Expert Bike & Car Service</div>
+                        <div class="text-white text-2xl md:text-4xl font-bold mb-2 drop-shadow-lg">GARAGE SERVICE CENTER</div>
+                        <div class="text-white/90 text-sm md:text-lg drop-shadow">All repairs under one roof</div>
+                    </div>
+                </div>
+                <button id="hero-next" class="absolute top-1/2 right-4 -translate-y-1/2 z-10 bg-white/50 hover:bg-white/80 transition-colors rounded-full p-2 shadow" aria-label="Next Banner">
+                    <i data-lucide="chevron-right" class="w-5 h-5 text-gray-700"></i>
+                </button>
+                <div class="absolute left-1/2 -translate-x-1/2 bottom-3 flex space-x-2 z-10">
+                    <div class="w-2 h-2 rounded-full bg-white" id="dot-0"></div>
+                    <div class="w-2 h-2 rounded-full bg-white/40" id="dot-1"></div>
+                    <div class="w-2 h-2 rounded-full bg-white/40" id="dot-2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- StatsSection -->
+    <section class="px-4 py-4">
+        <div class="grid grid-cols-3 gap-3">
+            <div class="bg-white border-0 shadow-sm rounded-xl">
+                <div class="p-3 text-center">
+                    <div class="text-lg font-bold text-blue-600 mb-1">150+</div>
+                    <div class="text-gray-600 text-xs">Cars</div>
+                </div>
+            </div>
+            <div class="bg-white border-0 shadow-sm rounded-xl">
+                <div class="p-3 text-center">
+                    <div class="text-lg font-bold text-orange-500 mb-1">24/7</div>
+                    <div class="text-gray-600 text-xs">Service</div>
+                </div>
+            </div>
+            <div class="bg-white border-0 shadow-sm rounded-xl">
+                <div class="p-3 text-center">
+                    <div class="text-lg font-bold text-green-600 mb-1">5k+</div>
+                    <div class="text-gray-600 text-xs">Customers</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MainServiceCards -->
+    <section class="px-4 py-3">
+        <h2 class="text-lg font-semibold text-gray-900 mb-3">Our Services</h2>
+        <div class="grid grid-cols-3 gap-2">
+            <!-- Rent Car -->
+            <a href="cars.html" class="block">
+                <div class="relative overflow-hidden rounded-xl shadow-lg bg-gradient-to-br from-blue-500 to-blue-600">
+                    <span class="pointer-events-none absolute top-0 left-0 w-full h-full z-20" style="background:linear-gradient(120deg,transparent 40%,rgba(255,255,255,0.5) 50%,transparent 60%);transform:translateX(-100%);animation:shine-move 4s linear infinite"></span>
+                    <div class="p-3 text-center relative z-30">
+                        <i data-lucide="car" class="h-6 w-6 text-white mx-auto mb-2"></i>
+                        <h3 class="font-semibold text-white text-xs mb-1">Rent Car</h3>
+                        <p class="text-white text-xs/none opacity-90">$500+</p>
+                    </div>
+                </div>
+            </a>
+            <!-- Washing -->
+            <a href="/car-washing" class="block">
+                <div class="relative overflow-hidden rounded-xl shadow-lg bg-gradient-to-br from-cyan-400 to-cyan-500">
+                    <span class="pointer-events-none absolute top-0 left-0 w-full h-full z-20" style="background:linear-gradient(120deg,transparent 40%,rgba(255,255,255,0.5) 50%,transparent 60%);transform:translateX(-100%);animation:shine-move 4s linear infinite"></span>
+                    <div class="p-3 text-center relative z-30">
+                        <i data-lucide="droplets" class="h-6 w-6 text-white mx-auto mb-2"></i>
+                        <h3 class="font-semibold text-white text-xs mb-1">Washing</h3>
+                        <p class="text-white text-xs/none opacity-90">$30+</p>
+                    </div>
+                </div>
+            </a>
+            <!-- Garage -->
+            <a href="/garage-services" class="block">
+                <div class="relative overflow-hidden rounded-xl shadow-lg bg-gradient-to-br from-orange-400 to-orange-500">
+                    <span class="pointer-events-none absolute top-0 left-0 w-full h-full z-20" style="background:linear-gradient(120deg,transparent 40%,rgba(255,255,255,0.5) 50%,transparent 60%);transform:translateX(-100%);animation:shine-move 4s linear infinite"></span>
+                    <div class="p-3 text-center relative z-30">
+                        <i data-lucide="wrench" class="h-6 w-6 text-white mx-auto mb-2"></i>
+                        <h3 class="font-semibold text-white text-xs mb-1">Garage</h3>
+                        <p class="text-white text-xs/none opacity-90">24/7</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="flex justify-center space-x-1 mt-3">
+            <div class="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
+            <div class="w-1.5 h-1.5 bg-gray-300 rounded-full"></div>
+            <div class="w-1.5 h-1.5 bg-gray-300 rounded-full"></div>
+        </div>
+    </section>
+
+    <!-- QuickServiceGrid -->
+    <section class="px-4 py-3">
+        <div class="grid grid-cols-4 gap-2">
+            <!-- Garage -->
+            <a href="/garage-services" class="block">
+                <div class="rounded-xl shadow-sm hover:shadow-md bg-white">
+                    <div class="p-2 text-center">
+                        <div class="w-8 h-8 bg-orange-50 rounded-lg flex items-center justify-center mx-auto mb-1">
+                            <i data-lucide="wrench" class="h-4 w-4 text-orange-500"></i>
+                        </div>
+                        <p class="text-xs font-medium text-gray-700">Garage</p>
+                    </div>
+                </div>
+            </a>
+            <!-- Washing -->
+            <a href="/car-washing" class="block">
+                <div class="rounded-xl shadow-sm hover:shadow-md bg-white">
+                    <div class="p-2 text-center">
+                        <div class="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mx-auto mb-1">
+                            <i data-lucide="droplets" class="h-4 w-4 text-blue-500"></i>
+                        </div>
+                        <p class="text-xs font-medium text-gray-700">Washing</p>
+                    </div>
+                </div>
+            </a>
+            <!-- Products -->
+            <a href="/products" class="block">
+                <div class="rounded-xl shadow-sm hover:shadow-md bg-white">
+                    <div class="p-2 text-center">
+                        <div class="w-8 h-8 bg-purple-50 rounded-lg flex items-center justify-center mx-auto mb-1">
+                            <i data-lucide="package" class="h-4 w-4 text-purple-500"></i>
+                        </div>
+                        <p class="text-xs font-medium text-gray-700">Products</p>
+                    </div>
+                </div>
+            </a>
+            <!-- Foglight -->
+            <a href="/foglight" class="block">
+                <div class="rounded-xl shadow-sm hover:shadow-md bg-white">
+                    <div class="p-2 text-center">
+                        <div class="w-8 h-8 bg-yellow-50 rounded-lg flex items-center justify-center mx-auto mb-1">
+                            <i data-lucide="zap" class="h-4 w-4 text-yellow-500"></i>
+                        </div>
+                        <p class="text-xs font-medium text-gray-700">Foglight</p>
+                    </div>
+                </div>
+            </a>
+            <!-- Engine Oil -->
+            <a href="/engine-oil" class="block">
+                <div class="rounded-xl shadow-sm hover:shadow-md bg-white">
+                    <div class="p-2 text-center">
+                        <div class="w-8 h-8 bg-green-50 rounded-lg flex items-center justify-center mx-auto mb-1">
+                            <i data-lucide="settings" class="h-4 w-4 text-green-500"></i>
+                        </div>
+                        <p class="text-xs font-medium text-gray-700">Engine Oil</p>
+                    </div>
+                </div>
+            </a>
+            <!-- Pickup -->
+            <a href="/pickup" class="block">
+                <div class="rounded-xl shadow-sm hover:shadow-md bg-white">
+                    <div class="p-2 text-center">
+                        <div class="w-8 h-8 bg-blue-50 rounded-lg flex items-center justify-center mx-auto mb-1">
+                            <i data-lucide="truck" class="h-4 w-4 text-blue-600"></i>
+                        </div>
+                        <p class="text-xs font-medium text-gray-700">Pickup</p>
+                    </div>
+                </div>
+            </a>
+            <!-- Greasing -->
+            <a href="/greasing" class="block">
+                <div class="rounded-xl shadow-sm hover:shadow-md bg-white">
+                    <div class="p-2 text-center">
+                        <div class="w-8 h-8 bg-gray-50 rounded-lg flex items-center justify-center mx-auto mb-1">
+                            <i data-lucide="rotate-ccw" class="h-4 w-4 text-gray-600"></i>
+                        </div>
+                        <p class="text-xs font-medium text-gray-700">Greasing</p>
+                    </div>
+                </div>
+            </a>
+            <!-- Detailing -->
+            <a href="/detailing" class="block">
+                <div class="rounded-xl shadow-sm hover:shadow-md bg-white">
+                    <div class="p-2 text-center">
+                        <div class="w-8 h-8 bg-pink-50 rounded-lg flex items-center justify-center mx-auto mb-1">
+                            <i data-lucide="sparkles" class="h-4 w-4 text-pink-500"></i>
+                        </div>
+                        <p class="text-xs font-medium text-gray-700">Detailing</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Available Cars -->
+    <section class="px-4 py-3">
+        <div class="flex items-center justify-between mb-3">
+            <h2 class="text-lg font-semibold text-gray-900">Available Cars</h2>
+            <a href="cars.html" class="text-blue-600 text-sm font-medium hover:text-blue-700">See All</a>
+        </div>
+        <div class="flex space-x-3 overflow-x-auto pb-2 scrollbar-hide">
+            <!-- Car card 1 -->
+            <a class="flex-shrink-0" href="car-detail.html">
+                <div class="min-w-[180px] rounded-lg overflow-hidden shadow-md bg-white">
+                    <div class="relative">
+                        <img src="/assets/car-banner.jpg" class="w-full h-28 object-cover" alt="Car" />
+                        <span class="absolute top-2 right-2 bg-green-500 text-white text-xs rounded px-2 py-0.5">Available</span>
+                    </div>
+                    <div class="p-3">
+                        <h3 class="font-semibold text-gray-900 text-sm truncate">Toyota Camry</h3>
+                        <p class="text-gray-600 text-xs mb-2">2023 Model</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-1 text-yellow-500">
+                                <i data-lucide="star" class="h-3 w-3 fill-yellow-500"></i>
+                                <span class="text-xs font-medium">4.8</span>
+                                <span class="text-xs text-gray-500">(120)</span>
+                            </div>
+                            <div class="text-blue-600 font-bold text-sm">₹3500/day</div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <!-- Car card 2 -->
+            <a class="flex-shrink-0" href="car-detail.html">
+                <div class="min-w-[180px] rounded-lg overflow-hidden shadow-md bg-white">
+                    <div class="relative">
+                        <img src="/assets/garagebanner.jpg" class="w-full h-28 object-cover" alt="Car" />
+                        <span class="absolute top-2 right-2 bg-red-500 text-white text-xs rounded px-2 py-0.5">Booked</span>
+                    </div>
+                    <div class="p-3">
+                        <h3 class="font-semibold text-gray-900 text-sm truncate">Honda City</h3>
+                        <p class="text-gray-600 text-xs mb-2">2022 Model</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-1 text-yellow-500">
+                                <i data-lucide="star" class="h-3 w-3 fill-yellow-500"></i>
+                                <span class="text-xs font-medium">4.6</span>
+                                <span class="text-xs text-gray-500">(87)</span>
+                            </div>
+                            <div class="text-blue-600 font-bold text-sm">₹2800/day</div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <!-- Car card 3 -->
+            <a class="flex-shrink-0" href="car-detail.html">
+                <div class="min-w-[180px] rounded-lg overflow-hidden shadow-md bg-white">
+                    <div class="relative">
+                        <img src="/assets/car-wash.png" class="w-full h-28 object-cover" alt="Car" />
+                        <span class="absolute top-2 right-2 bg-green-500 text-white text-xs rounded px-2 py-0.5">Available</span>
+                    </div>
+                    <div class="p-3">
+                        <h3 class="font-semibold text-gray-900 text-sm truncate">Hyundai i20</h3>
+                        <p class="text-gray-600 text-xs mb-2">2021 Model</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-1 text-yellow-500">
+                                <i data-lucide="star" class="h-3 w-3 fill-yellow-500"></i>
+                                <span class="text-xs font-medium">4.4</span>
+                                <span class="text-xs text-gray-500">(53)</span>
+                            </div>
+                            <div class="text-blue-600 font-bold text-sm">₹2400/day</div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- New Products -->
+    <section class="px-4 py-3">
+        <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-2">
+                <i data-lucide="package" class="h-5 w-5 text-indigo-600"></i>
+                <h2 class="text-lg font-semibold text-gray-900">New Products</h2>
+            </div>
+            <a href="/products" class="text-blue-600 text-sm font-medium hover:text-blue-700">See All</a>
+        </div>
+        <div class="flex space-x-3 overflow-x-auto pb-2 scrollbar-hide">
+            <!-- Product 1 -->
+            <div class="min-w-[180px] max-w-[180px] border-0 shadow-md hover:shadow-lg transition-all duration-300 rounded-lg overflow-hidden bg-white">
+                <div class="relative">
+                    <img src="/assets/car-wash.png" alt="Product" class="w-full h-28 object-cover">
+                    <span class="absolute top-2 right-2 bg-green-500 text-white text-xs rounded px-2 py-0.5">In Stock</span>
+                </div>
+                <div class="p-3 flex flex-col gap-2">
+                    <h3 class="font-semibold text-gray-900 text-sm truncate">Premium Car Shampoo</h3>
+                    <p class="text-gray-600 text-xs mb-1 line-clamp-2 whitespace-nowrap overflow-hidden text-ellipsis">High-foam, pH-neutral shampoo for gentle cleaning</p>
+                    <div class="flex items-center justify-between mb-1">
+                        <div class="flex items-center gap-1 text-yellow-400">
+                            <i data-lucide="star" class="h-3 w-3 fill-yellow-400"></i>
+                            <span class="text-xs">4.5</span>
+                        </div>
+                        <div class="text-blue-600 font-bold text-sm">₹499.00</div>
+                    </div>
+                    <button class="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow font-semibold text-sm py-2">Quick Buy</button>
+                </div>
+            </div>
+            <!-- Product 2 -->
+            <div class="min-w-[180px] max-w-[180px] border-0 shadow-md hover:shadow-lg transition-all duration-300 rounded-lg overflow-hidden bg-white">
+                <div class="relative">
+                    <img src="/assets/garagebanner.jpg" alt="Product" class="w-full h-28 object-cover">
+                    <span class="absolute top-2 right-2 bg-green-500 text-white text-xs rounded px-2 py-0.5">In Stock</span>
+                </div>
+                <div class="p-3 flex flex-col gap-2">
+                    <h3 class="font-semibold text-gray-900 text-sm truncate">Engine Oil 5W-30</h3>
+                    <p class="text-gray-600 text-xs mb-1 line-clamp-2 whitespace-nowrap overflow-hidden text-ellipsis">Synthetic oil for superior protection and performance</p>
+                    <div class="flex items-center justify-between mb-1">
+                        <div class="flex items-center gap-1 text-yellow-400">
+                            <i data-lucide="star" class="h-3 w-3 fill-yellow-400"></i>
+                            <span class="text-xs">4.7</span>
+                        </div>
+                        <div class="text-blue-600 font-bold text-sm">₹1,299.00</div>
+                    </div>
+                    <button class="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow font-semibold text-sm py-2">Quick Buy</button>
+                </div>
+            </div>
+            <!-- Product 3 -->
+            <div class="min-w-[180px] max-w-[180px] border-0 shadow-md hover:shadow-lg transition-all duration-300 rounded-lg overflow-hidden bg-white">
+                <div class="relative">
+                    <img src="/assets/car-banner.jpg" alt="Product" class="w-full h-28 object-cover">
+                    <span class="absolute top-2 right-2 bg-red-500 text-white text-xs rounded px-2 py-0.5">Sold Out</span>
+                </div>
+                <div class="p-3 flex flex-col gap-2">
+                    <h3 class="font-semibold text-gray-900 text-sm truncate">Microfiber Cloth Set</h3>
+                    <p class="text-gray-600 text-xs mb-1 line-clamp-2 whitespace-nowrap overflow-hidden text-ellipsis">Ultra-soft microfiber towels for scratch-free drying</p>
+                    <div class="flex items-center justify-between mb-1">
+                        <div class="flex items-center gap-1 text-yellow-400">
+                            <i data-lucide="star" class="h-3 w-3 fill-yellow-400"></i>
+                            <span class="text-xs">4.3</span>
+                        </div>
+                        <div class="text-blue-600 font-bold text-sm">₹299.00</div>
+                    </div>
+                    <button class="w-full bg-blue-400 text-white rounded-lg shadow font-semibold text-sm py-2 cursor-not-allowed opacity-60" disabled>Unavailable</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promotional Sections -->
+    <section class="px-4 py-3">
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="rounded-2xl bg-white shadow-lg p-6 flex flex-col items-center text-center hover:shadow-xl transition">
+                <img src="/assets/car-wash.png" alt="Car Wash" class="h-16 mb-3" />
+                <div class="font-bold text-blue-700 text-lg mb-1">Special Offers</div>
+                <div class="text-gray-600 text-sm">Check out our latest discounts and deals on car services and products!</div>
+            </div>
+            <div class="rounded-2xl bg-white shadow-lg p-6 flex flex-col items-center text-center hover:shadow-xl transition">
+                <img src="/assets/garagebanner.jpg" alt="Garage" class="h-16 mb-3 rounded" />
+                <div class="font-bold text-indigo-700 text-lg mb-1">Why Choose Us?</div>
+                <div class="text-gray-600 text-sm">Trusted by 5,000+ customers. 24/7 support. Premium quality guaranteed.</div>
+            </div>
+            <div class="rounded-2xl bg-white shadow-lg p-6 flex flex-col items-center text-center hover:shadow-xl transition">
+                <img src="/assets/car-banner.jpg" alt="Banner" class="h-16 mb-3 rounded" />
+                <div class="font-bold text-pink-700 text-lg mb-1">New Arrivals</div>
+                <div class="text-gray-600 text-sm">Explore the latest products and services added to our platform.</div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+@section Scripts {
+    <script>
+        // Hero Slider Functionality
+        const slides = [
+            { type: 'image', src: '/assets/car-banner.jpg', alt: 'Car Banner' },
+            { type: 'image', src: '/assets/car-wash.png', alt: 'Car Wash' },
+            { type: 'garage', src: '/assets/garagebanner.jpg', alt: 'Garage Service Banner' }
+        ];
+        let current = 0;
+        const img = document.getElementById('hero-image');
+        const overlay = document.getElementById('hero-garage-overlay');
+        const nextBtn = document.getElementById('hero-next');
+
+        function renderSlide() {
+            const s = slides[current];
+            img.src = s.src;
+            img.alt = s.alt;
+            overlay.classList.toggle('hidden', s.type !== 'garage');
+            // dots
+            for (let i = 0; i < slides.length; i++) {
+                const dot = document.getElementById(`dot-${i}`);
+                dot.className = 'w-2 h-2 rounded-full ' + (i === current ? 'bg-white' : 'bg-white/40');
+            }
+        }
+        nextBtn.addEventListener('click', () => { current = (current + 1) % slides.length; renderSlide(); });
+        setInterval(() => { current = (current + 1) % slides.length; renderSlide(); }, 3000);
+        renderSlide();
+    </script>
+    <style>
+        @@keyframes shine-move {
+            0% { transform: translateX(-100%); }
+            60%,100% { transform: translateX(120%); }
+        }
+    </style>
+}
